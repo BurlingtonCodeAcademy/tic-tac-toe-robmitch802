@@ -85,30 +85,28 @@ const cellLookup = {
     'cellSeven': cellSeven,
     'cellEight': cellEight
 }
-let playerTurn = "playerO"
+let playerTurn = "playerX"
 //--------------------function to change cell status, place x or o---------//
 function cellMove(cellID) {
     console.log(playerTurn)
     console.log(cellID)
     if (cellLookup[cellID].takenO === true || cellLookup[cellID].takenX === true) {
-        document.getElementById('cellPrint').innerHTML = "That square is taken! Try a different move."
+        document.getElementById('statusBoard').innerHTML = "That square is taken! Try a different move."
     } else if (playerTurn === "playerO") {
         cellLookup[cellID].takenO = true;
         document.getElementById(cellLookup[cellID].ID).innerHTML = "O";
-        document.getElementById('cellPrint').innerHTML = ("Player O took cell " + cellLookup[cellID].ID);
+        document.getElementById('statusBoard').innerHTML = ("Player O took cell " + cellLookup[cellID].ID);
         playerTurn = "playerX"
         console.log("inside else if " + playerTurn)
         document.getElementById('whoseTurn').innerHTML = "It's " + playerTurn + "'s turn."
     } else {
         cellLookup[cellID].takenX = true;
         document.getElementById(cellLookup[cellID].ID).innerHTML = "X";
-        document.getElementById('cellPrint').innerHTML = ("Player X took cell " + cellLookup[cellID].ID);
+        document.getElementById('statusBoard').innerHTML = ("Player X took cell " + cellLookup[cellID].ID);
         playerTurn = "playerO"
         document.getElementById('whoseTurn').innerHTML = "It's " + playerTurn + "'s turn."
     }
-        
 }
-
 
 //----------------------event listeners for cell move function ------------//
 document.getElementById('cell-0').addEventListener('click', () => {
@@ -141,26 +139,36 @@ document.getElementById('cell-8').addEventListener('click', () => {
 
 
 //------------------------start button event listener --------------------//
-document.getElementById('start').addEventListener('click', () => {
-    startMessage();
-});
 
 //one-player button 
 document.getElementById('one-player').addEventListener('click', () => {
-    onePlayerMessage();
+    onePlayerInit();
 });
+function onePlayerInit() {
+    document.getElementById('statusBoard').innerHTML = "The computer is ready. You are X, computer is O - X goes first.";
+    setInterval(gameTimer, 1000)
+}
 
 //two-player button
-document.getElementById('two-player').addEventListener('click', () => {
+document.getElementById('statusBoard').addEventListener('click', () => {
     twoPlayerMessage();
 });
 
-function startMessage() {
-    document.getElementById('playerStatus').innerHTML = "It's time to go!";
-}
-function onePlayerMessage() {
-    document.getElementById('playerStatus').innerHTML = "The computer is ready. You are X, computer is O - X goes first.";
-}
 function twoPlayerMessage() {
     document.getElementById('playerStatus').innerHTML = "Player One, it's your turn, go first.";
+    setInterval(gameTimer, 1000)
 }
+
+let time = 0
+function gameTimer(){
+    document.getElementById('clock').innerHTML = (time + "seconds")
+    time += 1
+}
+
+function stopClock() {
+    clearInterval(intervalID);
+}
+
+function randomInt(max, min) {
+    return Math.floor(min + (Math.random() * (max - min + 1)))
+  }
