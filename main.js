@@ -62,6 +62,15 @@ class cellObject {
             this.type = type
     }
 }
+//-----------starting variables--------------------------//
+//------list of cells taken by each player---------------//
+let playerXList = []
+
+let playerOList = []
+
+let startInit = false
+
+let playerTurn = "playerX"
 
 //-------------cell objects -----------------------------//
 let cellZero = new cellObject("zero", "cell-0", false, false, "corner")
@@ -85,7 +94,12 @@ const cellLookup = {
     'cellSeven': cellSeven,
     'cellEight': cellEight
 }
-let playerTurn = "playerX"
+
+function gameInit(){
+    startInit=true;
+}
+
+
 //--------------------function to change cell status, place x or o---------//
 function cellMove(cellID) {
     console.log(playerTurn)
@@ -93,18 +107,25 @@ function cellMove(cellID) {
     if (cellLookup[cellID].takenO === true || cellLookup[cellID].takenX === true) {
         document.getElementById('statusBoard').innerHTML = "That square is taken! Try a different move."
     } else if (playerTurn === "playerO") {
-        cellLookup[cellID].takenO = true;
+        cellLookup[cellID].takenO = true; //sets taken status to true
         document.getElementById(cellLookup[cellID].ID).innerHTML = "O";
         document.getElementById('statusBoard').innerHTML = ("Player O took cell " + cellLookup[cellID].ID);
-        playerTurn = "playerX"
+        playerOList.push(cellLookup[cellID].ID)
+        playerTurn = "playerX" //switches player turn to other player
         console.log("inside else if " + playerTurn)
         document.getElementById('whoseTurn').innerHTML = "It's " + playerTurn + "'s turn."
+        console.log("Player X moves: " + playerXList)
+        console.log("Player O moves: " + playerOList)
     } else {
         cellLookup[cellID].takenX = true;
         document.getElementById(cellLookup[cellID].ID).innerHTML = "X";
+        playerXList.push(cellLookup[cellID].ID) //adds player move to player move list
         document.getElementById('statusBoard').innerHTML = ("Player X took cell " + cellLookup[cellID].ID);
-        playerTurn = "playerO"
+        playerTurn = "playerO" //switches player turn to other player
+        console.log("inside else for " + playerTurn)
         document.getElementById('whoseTurn').innerHTML = "It's " + playerTurn + "'s turn."
+        console.log("Player X moves: " + playerXList)
+        console.log("Player O moves: " + playerOList)
     }
 }
 
@@ -146,22 +167,24 @@ document.getElementById('one-player').addEventListener('click', () => {
 });
 function onePlayerInit() {
     document.getElementById('statusBoard').innerHTML = "The computer is ready. You are X, computer is O - X goes first.";
+    gameInit()
     setInterval(gameTimer, 1000)
 }
 
 //two-player button
 document.getElementById('statusBoard').addEventListener('click', () => {
-    twoPlayerMessage();
+    twoPlayerInit();
 });
 
-function twoPlayerMessage() {
+function twoPlayerInit() {
     document.getElementById('playerStatus').innerHTML = "Player One, it's your turn, go first.";
-    setInterval(gameTimer, 1000)
+    gameInit();
+    setInterval(gameTimer, 1000);
 }
-
+//game clock
 let time = 0
 function gameTimer(){
-    document.getElementById('clock').innerHTML = (time + "seconds")
+    document.getElementById('clock').innerHTML = (time + " seconds")
     time += 1
 }
 
