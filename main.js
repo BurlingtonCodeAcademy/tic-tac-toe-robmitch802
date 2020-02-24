@@ -95,10 +95,29 @@ const cellLookup = {
     'cellEight': cellEight
 }
 
+//-----winning cell combos ----------------------------//
+const winCells = {
+    one: ["cell-0", "cell-1", "cell-2"],
+    two: ["cell-3", "cell-4", "cell-5"],
+    three: ["cell-6", "cell-7", "cell-8"],
+    four: ["cell-0", "cell-3", "cell-6"],
+    five: ["cell-1", "cell-4", "cell-7"],
+    six: ["cell-2", "cell-5", "cell-8"],
+    seven: ["cell-0", "cell-4", "cell-8"],
+    eight: ["cell-6", "cell-4", "cell-2"]
+}
+//-------win checking function ----------------------//
+function winCheck(playerArray){
+    for (let cell of winCells) {
+    if (playerArray.includes(wincells.one[0]) && playerArray.includes(winCells.one[1] && playerArray.includes(winCells.one[2])){
+
+    }
+    }
+}
+
 function gameInit(){
     startInit=true;
 }
-
 
 //--------------------function to change cell status, place x or o---------//
 function cellMove(cellID) {
