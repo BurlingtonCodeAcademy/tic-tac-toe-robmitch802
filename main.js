@@ -107,16 +107,32 @@ const winCells = {
     eight: ["cell-6", "cell-4", "cell-2"]
 }
 //-------win checking function ----------------------//
-function winCheck(playerArray){
-    for (let cell of winCells) {
-    if (playerArray.includes(wincells.one[0]) && playerArray.includes(winCells.one[1] && playerArray.includes(winCells.one[2])){
-
+function winCheck(playerArray) {
+    if (playerArray.includes(winCells.one[0]) && playerArray.includes(winCells.one[1]) && playerArray.includes(winCells.one[2])) {
+        console.log("array one wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
+    } else if (playerArray.includes(winCells.two[0]) && playerArray.includes(winCells.two[1]) && playerArray.includes(winCells.two[2])) {
+        console.log("array two wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
+    } else if (playerArray.includes(winCells.three[0]) && playerArray.includes(winCells.three[1]) && playerArray.includes(winCells.three[2])) {
+        console.log("array two wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
+    } else if (playerArray.includes(winCells.four[0]) && playerArray.includes(winCells.four[1]) && playerArray.includes(winCells.four[2])) {
+        console.log("array two wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
+    } else if (playerArray.includes(winCells.five[0]) && playerArray.includes(winCells.five[1]) && playerArray.includes(winCells.five[2])) {
+        console.log("array two wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
+    } else if (playerArray.includes(winCells.six[0]) && playerArray.includes(winCells.six[1]) && playerArray.includes(winCells.six[2])) {
+        console.log("array two wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
+    } else if (playerArray.includes(winCells.seven[0]) && playerArray.includes(winCells.seven[1]) && playerArray.includes(winCells.seven[2])) {
+        console.log("array two wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
+    } else if (playerArray.includes(winCells.eight[0]) && playerArray.includes(winCells.eight[1]) && playerArray.includes(winCells.eight[2])) {
+        console.log("array two wins check successful")
+        document.getElementById('statusBoard').innerHTML = "Player " + playerTurn + "WINS!!!"
     }
-    }
-}
-
-function gameInit(){
-    startInit=true;
 }
 
 //--------------------function to change cell status, place x or o---------//
@@ -130,6 +146,7 @@ function cellMove(cellID) {
         document.getElementById(cellLookup[cellID].ID).innerHTML = "O";
         document.getElementById('statusBoard').innerHTML = ("Player O took cell " + cellLookup[cellID].ID);
         playerOList.push(cellLookup[cellID].ID)
+        winCheck(playerOList);
         playerTurn = "playerX" //switches player turn to other player
         console.log("inside else if " + playerTurn)
         document.getElementById('whoseTurn').innerHTML = "It's " + playerTurn + "'s turn."
@@ -140,6 +157,7 @@ function cellMove(cellID) {
         document.getElementById(cellLookup[cellID].ID).innerHTML = "X";
         playerXList.push(cellLookup[cellID].ID) //adds player move to player move list
         document.getElementById('statusBoard').innerHTML = ("Player X took cell " + cellLookup[cellID].ID);
+        winCheck(playerXList)
         playerTurn = "playerO" //switches player turn to other player
         console.log("inside else for " + playerTurn)
         document.getElementById('whoseTurn').innerHTML = "It's " + playerTurn + "'s turn."
@@ -186,31 +204,31 @@ document.getElementById('one-player').addEventListener('click', () => {
 });
 function onePlayerInit() {
     document.getElementById('statusBoard').innerHTML = "The computer is ready. You are X, computer is O - X goes first.";
-    gameInit()
     setInterval(gameTimer, 1000)
 }
 
 //two-player button
-document.getElementById('statusBoard').addEventListener('click', () => {
+document.getElementById('two-player').addEventListener('click', () => {
     twoPlayerInit();
 });
 
 function twoPlayerInit() {
-    document.getElementById('playerStatus').innerHTML = "Player One, it's your turn, go first.";
-    gameInit();
-    setInterval(gameTimer, 1000);
+    document.getElementById('statusBoard').innerHTML = "Player One, it's your turn, go first.";
+    setInterval(gameTimer, 1000)
 }
 //game clock
 let time = 0
-function gameTimer(){
-    document.getElementById('clock').innerHTML = (time + " seconds")
+let timeOverflow = 0
+function gameTimer() {
+    document.getElementById('clock').innerHTML = ("Game Timer: " + timeOverflow + " minutes : " + time + " seconds")
     time += 1
-}
-
-function stopClock() {
-    clearInterval(intervalID);
+    if (time > 59){
+        timeOverflow += 1
+        console.log("add " + timeOverflow + " minutes")
+        time = 0
+    }
 }
 
 function randomInt(max, min) {
     return Math.floor(min + (Math.random() * (max - min + 1)))
-  }
+}
