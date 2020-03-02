@@ -35,6 +35,13 @@ h1{
   padding:2px 15px;
 }
 
+.turtle {
+  background: url(http://clipart-library.com/new_gallery/67-673557_turtle-clipart-top-tortoise-clipart.png)
+}
+.tortoise {
+  background: url(http://clipart-library.com/image_gallery/n396076.gif)
+}
+
 div[id^="row-"]{
   display:flex;
   flex-direction:row;
@@ -84,6 +91,7 @@ button{
   color: white;
   font-style: unset;
   padding: 10px;
+  border:none;
   border-radius: 6px;
   margin-left: 20px;
 }
