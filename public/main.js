@@ -45,6 +45,8 @@ let playerOList = []
 
 let startInit = false
 
+let computerPlay = false
+
 let playerTurn = "playerX"
 
 let playerOneName = "Player X"
@@ -194,6 +196,7 @@ document.getElementById('one-player').addEventListener('click', () => {
 function onePlayerInit() {
     document.getElementById('statusBoard').innerHTML = "The computer is ready. You are X, computer is O - X goes first.";
     startInit = true;
+    computerPlay = true;
     playerTwoName = "Computer"
     playerOneName = "Human Being"
     setInterval(gameTimer, 1000)

@@ -1,0 +1,89 @@
+/*******style sheet practice week 4 **********/
+body{
+  margin: 0 auto;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+  margin-left: 10%;
+  min-width: 850px;
+}
+
+p{
+  color:black;
+  font-size: 1.2rem;
+}
+h1{
+  color: forestgreen;
+  font-size: 2.5rem;
+}
+
+.header{
+  font-size: 1.5rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+}
+.statusBox{
+  text-align: center;
+}
+.board{
+  margin: 0px auto;
+  max-width: 460px;
+  background-color: slategray;
+  padding:2px 15px;
+}
+div[id^="row-"]{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  margin-top: 2px;
+  text-align: center;
+}
+
+#cell-0, #cell-1, #cell-2{
+  border-top: none;
+}
+
+#cell-6, #cell-7, #cell-8{
+  border-bottom: none;
+  }
+
+div[id^="cell-"]{
+  border-style: solid;
+  min-height: 150px;
+  min-width: 150px;
+  max-width: 33%;
+  margin: 2px;
+  padding: 2px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+div[id^="cell-"]:hover {
+  background:darkorange;
+}
+div[id^="cell-"]:clicked{
+  background:blue;
+}
+div[id^="row-"] div:first-child{
+  border-left: none;
+}
+div[id^="row-"] div:last-child{
+  border-right: none;
+}
+.clock {
+  margin-bottom: 5px;
+  text-align: center;
+}
+button{
+  background-color: blue;
+  color: white;
+  font-style: unset;
+  padding: 10px;
+  border-radius: 6px;
+  margin-left: 20px;
+}
+button:hover{
+  background-color: rgb(9, 112, 146);
+}
