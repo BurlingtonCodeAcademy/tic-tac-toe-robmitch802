@@ -127,6 +127,12 @@ function winCheck(playerArray) {
 
 //*
 
+
+async function nameCheck () {
+    playerOneName = await ask("Player One, what's your name?")
+    playerTwoName = await ask("Player Two, what's your name?")
+}
+
 //--------------------function to change cell status, place x or o---------//
 function cellMove(cellID) {
     console.log(playerTurn)
