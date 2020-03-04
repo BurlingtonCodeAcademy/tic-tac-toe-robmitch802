@@ -36,10 +36,10 @@ h1{
 }
 
 .turtle {
-  background: url(http://clipart-library.com/new_gallery/67-673557_turtle-clipart-top-tortoise-clipart.png)
+  background-image: url('http://clipart-library.com/new_gallery/67-673557_turtle-clipart-top-tortoise-clipart.png');
 }
 .tortoise {
-  background: url(http://clipart-library.com/image_gallery/n396076.gif)
+  background-image: url('http://clipart-library.com/image_gallery/n396076.gif');
 }
 
 div[id^="row-"]{

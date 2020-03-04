@@ -1,21 +1,11 @@
 //Tic-Tac-Toe 2.20.20
 
-
-//win condition
-//-> player achieves 3 xoro in a row, column or diagonal
-//--system draws line through three winning three cells
-//--App says "congratulations!"
-//--Game ends
-
 //name picking
 //-> when starting a game, user can pick player names
 //--in 1 player, user picks user name
 //--in two player, users each pick name
 
 //game timer
-//->game timer starts when game starts
-//-timer shows time elapsed in xx seconds 
-//-alt shows time elapsed in hh:mm:ss format
 
 //new game 
 //--gives option of 1 or 2 players
@@ -125,9 +115,7 @@ function winCheck(playerArray) {
 }
 
 
-//*
-
-
+// -------- set name value -------------------//
 async function nameCheck () {
     playerOneName = await ask("Player One, what's your name?")
     playerTwoName = await ask("Player Two, what's your name?")
@@ -144,6 +132,7 @@ function cellMove(cellID) {
     } else if (playerTurn === "playerO") {
         cellLookup[cellID].takenO = true; //sets taken status to true
         document.getElementById(cellLookup[cellID].ID).innerHTML = "O";
+        document.getElementById(cellLookup[cellID].ID).className = "tortoise";
         document.getElementById('statusBoard').innerHTML = (playerTwoName + " took cell " + cellLookup[cellID].ID);
         playerOList.push(cellLookup[cellID].ID)
         winCheck(playerOList);
@@ -206,6 +195,19 @@ function onePlayerInit() {
     playerTwoName = "Computer"
     playerOneName = "Human Being"
     setInterval(gameTimer, 1000)
+}
+
+//--------------------reset function --------------------
+document.getElementById('reset').addEventListener('click', () => {
+    reset();
+})
+
+function reset(){
+    console.log('resetting game to start over... ')
+    //clear taken cells
+
+    //stop clock
+    clearInterval(timeID)
 }
 
 //--------------------two-player game start ------------------------//
