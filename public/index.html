@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tic Tac Toe</title>
-  <link type="text/css" rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
 
 </head>
 
@@ -15,38 +15,51 @@
         <h1>Turtle-Tac-Toe</h1>
     </div>
     <div class="statusBox">
-        <p id="statusBoard">Status ticker here</p>
+        <p id="statusBoard">It's Turtles vs. Tortoises.</p>
         <p id="whoseTurn"></p>
     </div>
+
     <div class="board">
-    <div id="row-1">
-        <div id="cell-0" class=""></div>
-        <div id="cell-1" class=""></div>
-        <div id="cell-2" class=""></div>
+        <div id="row-1">
+            <div id="cell-0" class=""></div>
+            <div id="cell-1" class=""></div>
+            <div id="cell-2" class=""></div>
+        </div>
+        <div id="row-2">
+            <div id="cell-3" class=""></div>
+            <div id="cell-4" class=""></div>
+            <div id="cell-5" class=""></div>
+        </div>
+        <div id="row-3">
+            <div id="cell-6" class=""></div>
+            <div id="cell-7" class=""></div>
+            <div id="cell-8" class=""></div>
+        </div>
     </div>
-    <div id="row-2">
-        <div id="cell-3" class=""></div>
-        <div id="cell-4" class=""></div>
-        <div id="cell-5" class=""></div>
-    </div>
-    <div id="row-3">
-        <div id="cell-6" class=""></div>
-        <div id="cell-7" class=""></div>
-        <div id="cell-8" class=""></div>
-    </div>
-</div> <!----board ends-->
+    <!----board ends-->
     <div class="clock">
         <p id="clock">You haven't started...</p>
-    <div class="buttons">
-        <button id="one-player">Start One-Player</button>
-        <button id="two-player">Start Two-Player</button>
-        <button id="reset">Reset Game</button>
+        <div class="buttons">
+            <button id="one-player">Start One-Player</button>
+            <button id="two-player">Start Two-Player</button>
+            <button id="reset">Reset Game</button>
+        </div>
+        <div class="nameCheck">
+            <div class="playerOneName">
+                <label for="playerOneName">Player One Name:</label>
+                <form id="naming1">
+                <input type="text" id="playerOneName" value="" name="playerOneName"></input>
+                <input type="submit" class="btn2" onsubmit='namePicker()'></input>
+                </form>
+            </div>
+            <div class="playerTwoName">
+                <label for="playerTwoName">Player Two Name:</label>
+                <input type="text" id="playerTwoName" name="playerTwoName"></input>
+                <button class="btn2">Submit</button>
+            </div>
+        </div>
     </div>
-</div>
-<div class="tortoise"><img src="" /></div>
-<div><img src="" /></div>
-
-<script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

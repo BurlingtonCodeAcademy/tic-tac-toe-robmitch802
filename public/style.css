@@ -1,4 +1,4 @@
-
+/*****general site items***/
 body{
   margin: 0 auto;
   padding: 0;
@@ -28,18 +28,18 @@ h1{
   text-align: center;
 }
 
-.board{
-  margin: 0px auto;
-  max-width: 460px;
-  background-color: slategray;
-  padding:2px 15px;
-}
 
-.turtle {
-  background-image: url('http://clipart-library.com/new_gallery/67-673557_turtle-clipart-top-tortoise-clipart.png');
-}
-.tortoise {
-  background-image: url('http://clipart-library.com/image_gallery/n396076.gif');
+/***** board setup *********/
+.board{
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  max-width: 95%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: none;
+  padding:2px 15px;
 }
 
 div[id^="row-"]{
@@ -48,9 +48,47 @@ div[id^="row-"]{
   justify-content: center;
   margin-top: 2px;
   text-align: center;
-  font-size: 75px;
 }
 
+div[id^="cell-"]{
+  border-style: solid;
+  min-height: 120px;
+  min-width: 120px;
+  max-width: 33%;
+  margin: 2px;
+  padding: 2px;
+  font-weight: bold;
+  text-align: center;
+}
+div[id^="cell-"]:hover {
+  background:lightgoldenrodyellow;
+
+}
+div[id^="cell-"]:selected{
+  background:blue;
+}
+
+/***********board items setup *********/
+.nameCheck{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.turtle {
+  background-image: url('/img/turtle.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tortoise {
+  background-image: url('/img/tortoise.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+/***************
 #cell-0, #cell-1, #cell-2{
   border-top: none;
 }
@@ -58,30 +96,17 @@ div[id^="row-"]{
 #cell-6, #cell-7, #cell-8{
   border-bottom: none;
   }
+******/
 
-div[id^="cell-"]{
-  border-style: solid;
-  min-height: 150px;
-  min-width: 150px;
-  max-width: 33%;
-  margin: 2px;
-  padding: 2px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-}
-div[id^="cell-"]:hover {
-  background:darkorange;
-}
-div[id^="cell-"]:clicked{
-  background:blue;
-}
+
+
+/**
 div[id^="row-"] div:first-child{
   border-left: none;
 }
 div[id^="row-"] div:last-child{
   border-right: none;
-}
+}***/
 .clock {
   margin-bottom: 5px;
   text-align: center;
@@ -97,4 +122,9 @@ button{
 }
 button:hover{
   background-color: rgb(9, 112, 146);
+}
+button .btn{
+  background-color: lightsalmon;
+  padding: 3px;
+  border-radius: 15px;
 }

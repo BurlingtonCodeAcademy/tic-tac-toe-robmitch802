@@ -39,9 +39,9 @@ let computerPlay = false
 
 let playerTurn = "playerX"
 
-let playerOneName = "Player X"
+let playerOneName = "Tortoise"
 
-let playerTwoName = "Player O"
+let playerTwoName = "Turtle"
 
 //-------------cell objects -----------------------------//
 let cellZero = new cellObject("zero", "cell-0", false, false, "corner")
@@ -131,7 +131,7 @@ function cellMove(cellID) {
         document.getElementById('statusBoard').innerHTML = "You haven't started the game yet. Choose one-player or two-player."
     } else if (playerTurn === "playerO") {
         cellLookup[cellID].takenO = true; //sets taken status to true
-        document.getElementById(cellLookup[cellID].ID).innerHTML = "O";
+        //document.getElementById(cellLookup[cellID].ID).innerHTML = "O";
         document.getElementById(cellLookup[cellID].ID).className = "tortoise";
         document.getElementById('statusBoard').innerHTML = (playerTwoName + " took cell " + cellLookup[cellID].ID);
         playerOList.push(cellLookup[cellID].ID)
@@ -143,7 +143,8 @@ function cellMove(cellID) {
         console.log("Player O moves: " + playerOList)
     } else {
         cellLookup[cellID].takenX = true;
-        document.getElementById(cellLookup[cellID].ID).innerHTML = "X";
+        //document.getElementById(cellLookup[cellID].ID).innerHTML = "X";
+        document.getElementById(cellLookup[cellID].ID).className = "turtle";
         playerXList.push(cellLookup[cellID].ID) //adds player move to player move list
         document.getElementById('statusBoard').innerHTML = (playerOneName + " took cell " + cellLookup[cellID].ID);
         winCheck(playerXList)
@@ -189,7 +190,7 @@ document.getElementById('one-player').addEventListener('click', () => {
     onePlayerInit();
 });
 function onePlayerInit() {
-    document.getElementById('statusBoard').innerHTML = "The computer is ready. You are X, computer is O - X goes first.";
+    document.getElementById('statusBoard').innerHTML = "The computer is ready. You are turtles, computer is tortoises - turtles go first.";
     startInit = true;
     computerPlay = true;
     playerTwoName = "Computer"
@@ -220,6 +221,12 @@ function twoPlayerInit() {
     startInit = true;
     setInterval(gameTimer, 1000)
 }
+
+function namePicker() {
+    let playerOneName = document.getElementById('playerOneName')
+    console.log(playerOneName)
+}
+
 //-------------------- game clock -----------------------------------// 
 let time = 0
 let timeOverflow = 0
