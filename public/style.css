@@ -33,13 +33,13 @@ h1{
 .board{
   display: flex;
   flex-direction: column;
+  max-width: 375px;
   margin: 0px auto;
-  max-width: 95%;
   border-style: solid;
   border-width: 2px;
   border-radius: 5px;
   background-color: none;
-  padding:2px 15px;
+  padding: .6rem 1.2rem;
 }
 
 div[id^="row-"]{
@@ -64,6 +64,24 @@ div[id^="cell-"]:selected{
   background:blue;
 }
 
+hr.vert {
+  border-top:
+  width: 1px;
+  height: 320px;
+  background-color: red;
+}
+hr.horiz {
+  height: 1px;
+  width: 320px;
+  background-color: red;
+}
+hr.diag {
+  height: 1px;
+  width: 320px;
+
+}
+
+/******modal stuff ***/
 #modalContainer {
   position: fixed;
   left:0;
@@ -124,6 +142,11 @@ div[id^="cell-"]:selected{
   flex-direction: row;
   padding: 3px 3px;
 }
+.modal-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
 .display{
   z-index: 333;
   opacity: 1;
@@ -158,7 +181,7 @@ button{
   background-color: blue;
   color: white;
   font-style: unset;
-  padding: 10px;
+  padding: 5px 10px;
   border:none;
   border-radius: 6px;
   margin-left: 20px;

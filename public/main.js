@@ -207,26 +207,32 @@ function reset(){
 //--------------------two-player game start ------------------------//
 //-----------------event listeners ---------------------------------//
 document.getElementById('two-player').addEventListener('click', () => {
-    twoPlayerInit();
+    modalOpen();
 });
 
 document.getElementById('cancelButton').addEventListener('click', () => {
     closeModal();
 });
 
-//----------------pops open modal -----------------//
-function twoPlayerInit() {
-    document.getElementById('modalContainer').style.opacity='1';
-}
-
 document.getElementById('startButton').addEventListener('click', () => {
     twoPlayerStart()
 })
 
+//----------------pops open modal -----------------//
+function modalOpen() {
+    document.getElementById('modalContainer').style.opacity='1';
+}
+
 function twoPlayerStart() {
     document.getElementById('statusBoard').innerHTML = playerOneName + ", it's your turn, go first.";
     closeModal()
-    document.getElementById('two-player').style.disabled = "true";
+
+    playerOneName = document.getElementById('playerOneId').value
+    playerTwoName = document.getElementById('playerTwoId').value
+
+    console.log(playerOneName)
+    console.log(playerTwoName)
+    
     startInit = true;
     setInterval(gameTimer, 1000)
 }
@@ -235,7 +241,7 @@ function closeModal(){
     document.getElementById('modalContainer').style.opacity='0';
 }
 
-document.getElementById('playerOneName').addEventListener('submit', () => {
+document.getElementById('playerOneId').addEventListener('submit', () => {
     namePlayerOne()
 })
 
@@ -243,11 +249,6 @@ function namePlayerOne() {
     playerOneName = event.target.value
 }
 
-document.getElementById('playerTwoName').addEventListener('submit', namePlayerTwo)
-
-function namePlayerTwo() {
-    playerTwoName = event.target.value
-}
 
 
 
