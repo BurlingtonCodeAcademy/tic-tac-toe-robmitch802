@@ -39,9 +39,9 @@ let computerPlay = false
 
 let playerTurn = "playerX"
 
-let playerOneName = "Tortoise"
+let playerOneName = "Turtle"
 
-let playerTwoName = "Turtle"
+let playerTwoName = "Tortoise"
 
 //-------------cell objects -----------------------------//
 let cellZero = new cellObject("zero", "cell-0", false, false, "corner")
@@ -205,21 +205,39 @@ function reset(){
 }
 
 //--------------------two-player game start ------------------------//
+//-----------------event listeners ---------------------------------//
 document.getElementById('two-player').addEventListener('click', () => {
     twoPlayerInit();
 });
 
+document.getElementById('cancelButton').addEventListener('click', () => {
+    closeModal();
+});
+
+//----------------pops open modal -----------------//
 function twoPlayerInit() {
-    
-    document.getElementById('statusBoard').innerHTML = "Player One, it's your turn, go first.";
+    document.getElementById('modalContainer').style.opacity='1';
+}
+
+document.getElementById('startButton').addEventListener('click', () => {
+    twoPlayerStart()
+})
+
+function twoPlayerStart() {
+    document.getElementById('statusBoard').innerHTML = playerOneName + ", it's your turn, go first.";
+    closeModal()
+    document.getElementById('two-player').style.disabled = "true";
     startInit = true;
     setInterval(gameTimer, 1000)
+}
+
+function closeModal(){
+    document.getElementById('modalContainer').style.opacity='0';
 }
 
 document.getElementById('playerOneName').addEventListener('submit', () => {
     namePlayerOne()
 })
-
 
 function namePlayerOne() {
     playerOneName = event.target.value

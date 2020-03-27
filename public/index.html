@@ -44,22 +44,29 @@
             <button id="two-player">Start Two-Player</button>
             <button id="reset">Reset Game</button>
         </div>
-        <div class="nameCheck">
-            <div class="playerOneName">
-                <form id="playerOne">
-                <label for="playerOneName">Player One Name:</label>
-                <input type="text" id="playerOneName" name="playerOneName"></input>
+    </div>
+    <div id="modalContainer" >
+        <div class="modal">
+            <p>Pick player names (or leave blank to stick with 'Turtle' and 'Tortoise')</p>
+            <form id="playerOne">
+                <label for="playerOneName">Player 1: </label>
+                <input type="text" id="playerOneId" name="playerOneId" placeholder="Player One"></input>
+                <input type="text" id="playerTwoId" name="playerTwoId" 
                 <input type="submit" class="btn2" ></input>
-                </form> 
+            </form>
+            <form id="playerTwo">
+                <label for="playerTwoName">Player 2: </label>
+                <input type="text" id="playerTwoName" name="playerTwoName" placeholder = "Player Two"></input>
+                <input type="submit" class="btn2"></input>
+            </form>
+            <div class="buttonModal">
+                <button class="btn2" id="startButton">Start</button>
+                <button class="btn2" id="cancelButton">Cancel</button>
             </div>
-                <form id="playerTwo">
-                    <label for="playerTwoName">Player Two Name:</label>
-                    <input type="text" id="playerTwoName" name="playerTwoName"></input>
-                    <input type="submit" class="btn2"></button>
-                </form>
             
         </div>
     </div>
+
     <script src="main.js"></script>
 </body>
 
