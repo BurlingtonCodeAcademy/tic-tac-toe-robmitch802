@@ -114,13 +114,6 @@ function winCheck(playerArray) {
     } else {console.log("no winners here yet")}
 }
 
-
-// -------- set name value -------------------//
-async function nameCheck () {
-    playerOneName = await ask("Player One, what's your name?")
-    playerTwoName = await ask("Player Two, what's your name?")
-}
-
 //--------------------function to change cell status, place x or o---------//
 function cellMove(cellID) {
     console.log(playerTurn)
@@ -217,15 +210,28 @@ document.getElementById('two-player').addEventListener('click', () => {
 });
 
 function twoPlayerInit() {
+    
     document.getElementById('statusBoard').innerHTML = "Player One, it's your turn, go first.";
     startInit = true;
     setInterval(gameTimer, 1000)
 }
 
-function namePicker() {
-    let playerOneName = document.getElementById('playerOneName')
-    console.log(playerOneName)
+document.getElementById('playerOneName').addEventListener('submit', () => {
+    namePlayerOne()
+})
+
+
+function namePlayerOne() {
+    playerOneName = event.target.value
 }
+
+document.getElementById('playerTwoName').addEventListener('submit', namePlayerTwo)
+
+function namePlayerTwo() {
+    playerTwoName = event.target.value
+}
+
+
 
 //-------------------- game clock -----------------------------------// 
 let time = 0

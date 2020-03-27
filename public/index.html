@@ -46,17 +46,18 @@
         </div>
         <div class="nameCheck">
             <div class="playerOneName">
+                <form id="playerOne">
                 <label for="playerOneName">Player One Name:</label>
-                <form id="naming1">
-                <input type="text" id="playerOneName" value="" name="playerOneName"></input>
-                <input type="submit" class="btn2" onsubmit='namePicker()'></input>
+                <input type="text" id="playerOneName" name="playerOneName"></input>
+                <input type="submit" class="btn2" ></input>
+                </form> 
+            </div>
+                <form id="playerTwo">
+                    <label for="playerTwoName">Player Two Name:</label>
+                    <input type="text" id="playerTwoName" name="playerTwoName"></input>
+                    <input type="submit" class="btn2"></button>
                 </form>
-            </div>
-            <div class="playerTwoName">
-                <label for="playerTwoName">Player Two Name:</label>
-                <input type="text" id="playerTwoName" name="playerTwoName"></input>
-                <button class="btn2">Submit</button>
-            </div>
+            
         </div>
     </div>
     <script src="main.js"></script>
