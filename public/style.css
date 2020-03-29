@@ -65,7 +65,7 @@ div[id^="cell-"]:selected{
 }
 
 hr.vert {
-  border-top:
+  border-top: 1px;
   width: 1px;
   height: 320px;
   background-color: red;
@@ -74,6 +74,7 @@ hr.horiz {
   height: 1px;
   width: 320px;
   background-color: red;
+
 }
 hr.diag {
   height: 1px;
@@ -88,6 +89,7 @@ hr.diag {
   top:0;
   max-width:320px;
   height:100%;
+  vertical-align: middle;
   overflow: auto;
   border-radius: 3%;
   border: 7px solid gray;
@@ -104,8 +106,35 @@ hr.diag {
   height: 95%;
   margin: auto;
   padding: 5px 5px;
+  -webkit-animation-name: modal-animation;
+  -webkit-animation-duration: 0.5s;
+  animation-name: modal-animation;
+  animation-duration: 0.5s; 
 }
-.w3-modal{
+
+@-webkit-keyframes modal-animation {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@-keyframes modal-animation {
+  from {
+    top: -100px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+/* .w3-modal{
   z-index:3;
   display:none;
   padding-top:100px;
@@ -123,7 +152,7 @@ hr.diag {
   position:relative;
   padding:0;
   outline:0;
-  width:600px}
+  width:600px} */
 
 
 .buttonModal {

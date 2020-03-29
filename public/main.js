@@ -5,19 +5,6 @@
 //--in 1 player, user picks user name
 //--in two player, users each pick name
 
-//game timer
-
-//new game 
-//--gives option of 1 or 2 players
-
-//artificial stupidity
-//--when player vs. computer, computer always chooses a random cell
-
-//AI real player
-//--AI chooses the best cell 
-
-//9 at once
-//--play 9 games at once.
 class cellObject {
     constructor(cellName, ID, takenO, takenX, type) {
         this.cellName = cellName,
@@ -77,6 +64,9 @@ const winCells = {
     seven: ["cell-0", "cell-4", "cell-8"],
     eight: ["cell-6", "cell-4", "cell-2"]
 }
+
+//----cell array for class reset -----------//
+cellArray = ["cell-0", "cell-1", "cell-2", "cell-3", "cell-4", "cell-5" "cell-6", "cell-7", "cell-8"]
 //-------win checking function ----------------------//
 function winCheck(playerArray) {
     if (playerArray.includes(winCells.one[0]) && playerArray.includes(winCells.one[1]) && playerArray.includes(winCells.one[2])) {
@@ -198,10 +188,27 @@ document.getElementById('reset').addEventListener('click', () => {
 
 function reset(){
     console.log('resetting game to start over... ')
-    //clear taken cells
+    //clear taken cells, reset conditions to inital state
+    playerXList = []
+    playerOList = []
+    startInit = false
+    computerPlay = false
+    playerTurn = "playerX"
+    playerOneName = "Turtle"
+    playerTwoName = "Tortoise"
+
+    //clear turtle & tortoise styles
+
+
+    for(int = 0; cellArray.length; int++){
+        let cellName = document.getElementById(cellArray[int])
+        console.log(cellName)
+        cellName.classList.remove("turtle")
+        cellName.classList.remove("tortoise")
+    }
 
     //stop clock
-    clearInterval(timeID)
+    // clearInterval(timeID)
 }
 
 //--------------------two-player game start ------------------------//
